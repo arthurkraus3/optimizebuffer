@@ -7139,7 +7139,12 @@ void TTree::OptimizeBaskets(ULong64_t maxMemory, Float_t minComp, Option_t *opti
             printf("newBsize @ 6: %d\n", newBsize); 
          if (pass) {
             printf("Changing buffer size from %6d to %6d bytes for %s\n",oldBsize,newBsize,branch->GetName());
-            branch->SetBasketSize(newBsize);
+            printf("Jackwashere!!\n");
+            if(newBsize > 128*1024){
+                branch->SetBasketSize(128*1024);
+            } else {
+                branch->SetBasketSize(newBsize);
+            }
          }
          newMemsize += newBsize;
          // For this number to be somewhat accurate when newBsize is 'low'

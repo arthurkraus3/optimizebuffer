@@ -1,0 +1,8 @@
+if (pDebug) Info("OptimizeBaskets", "Changing buffer size from %6d to %6d bytes for %s\n",oldBsize,newBsize,branch->GetName());
+            printf("Jackwashere!!\n");
+            if(newBsize > 128*1024){
+                branch->SetBasketSize(128*1024);
+            } else {
+                branch->SetBasketSize(newBsize);
+            }    
+
